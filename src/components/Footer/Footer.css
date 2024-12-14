@@ -1,0 +1,61 @@
+.footer {
+  display: flex;
+  padding: 0.5%;
+  background-color: #444654;
+  border-top: 1px solid #5A5C6A;
+  box-sizing: border-box;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+  
+.message-input {
+  margin: 0.2%;
+  flex: 1;
+  padding: 1%;
+  resize: none;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 5px;
+  background-color: #343541;
+  color: white;
+}
+  
+textarea:focus {
+  outline: none;
+}
+
+.send-button {
+  padding: 1% 2.5%;
+  margin: 0.2% 0%;
+  margin-left: 1%;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+  
+.send-button.enabled {
+  cursor: pointer;
+  background-color: #1a73e8;
+  color: white;
+}
+
+.send-button.disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+  color: #888;
+}
+
+.send-button:enabled:hover {
+  background-color: #145aba;
+}
+  

@@ -1,0 +1,128 @@
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: #444654;
+    color: white;
+    box-sizing: border-box;
+}
+
+.intro-content {
+    max-width: 80%;
+    padding: 1%;
+    margin-bottom: 1%;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Per nascondere la label ma mantenere accessibilità */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.menu-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.intro-container .region-dropdown {
+    padding: 1em;
+    font-size: 1em;
+    border-radius: 8px;
+}
+
+.intro-container .region-dropdown:focus {
+    outline: none;
+    border: 3px solid #1a73e8;
+}
+
+.intro-container .start-button {
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 1.1em 1.7em;
+    transition: background-color 1s ease;
+}
+
+.intro-container .start-button.disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+.intro-container .start-button.enabled {
+    background-color: #1a73e8;
+    cursor: pointer;
+}
+
+.intro-container .start-button.enabled:hover {
+    background-color: #145aba;
+}
+
+/* Animazione di fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Media query per dispositivi mobili (fino a 768px INCLUSO) */
+@media (max-width: 768px) {
+    .menu-button-container {
+        flex-direction: column; /* Menu sopra il bottone */
+    }
+
+    .intro-container .region-dropdown {
+        margin-top: 3%;
+    }
+
+    .intro-container .start-button {
+        margin-top: 7%;
+        margin-bottom: 3%;
+    }
+}
+
+/* Media query per tablet (769px a 1024px INCLUSI) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .menu-button-container {
+        flex-direction: column; /* Menu sopra il bottone */
+    }
+
+    .intro-container .region-dropdown {
+        margin-top: 4%;
+    }
+
+    .intro-container .start-button {
+        margin-top: 7%;
+        margin-bottom: 4%;
+    }
+}
+
+/* Media query per desktop (1025px e oltre) */
+@media (min-width: 1025px) {
+    .menu-button-container {
+        flex-direction: row; /* sulla stessa riga il menu e il bottone */
+    }
+
+    .intro-container .region-dropdown {
+        margin-right: 1.2em;
+    }
+    
+}
