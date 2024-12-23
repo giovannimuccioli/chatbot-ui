@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import './Intro.css';
 
 const Intro = ({ onStartChat }) => {
-    // Hook per gestire lo stato della regione selezionata
+    // Hook per gestire lo stato della regione selezionata: inizialmente vuoto
     const [region, setRegion] = useState('');
 
     // Definisco un array di regioni
@@ -22,6 +22,7 @@ const Intro = ({ onStartChat }) => {
     
     // Funzione per gestire l'inizio della chat
     const handleStart = () => {
+        // Se la regione è selezionata, allora inizio la chat
         if (region) {
             onStartChat(region);
         }

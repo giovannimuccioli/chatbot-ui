@@ -5,9 +5,9 @@ services:
     build:
       context: .
       dockerfile: backend/Dockerfile
-    image: my-backend-image:latest  # Nome immagine per il backend
+    image: my-backend-image:latest # Nome immagine per backend
     ports:
-      - "5000:5000"  # Esponi la porta 5000 del backend
+      - "5000:5000" # Esposizione porta 5000 per backend
     networks:
       - chatbot-network # Rete personalizzata
 
@@ -15,14 +15,14 @@ services:
     build:
       context: .
       dockerfile: src/Dockerfile
-    image: my-frontend-image:latest  # Nome immagine per il frontend
+    image: my-frontend-image:latest # Nome immagine per frontend
     ports:
-      - "3000:3000"  # Esponi la porta 3000 per il frontend
+      - "3000:3000" # Esposizione porta 3000 per frontend
     environment:
-      - REACT_APP_BACKEND_URL=http://localhost:5000  # Connessione al backend tramite nome del servizio
+      - REACT_APP_BACKEND_URL=http://localhost:5000 # Connessione al backend tramite nome del servizio
     networks:
       - chatbot-network # Rete personalizzata
 
 networks:
-  chatbot-network:  # Rete personalizzata
+  chatbot-network: # Rete personalizzata
     driver: bridge # Driver bridge per la rete di default

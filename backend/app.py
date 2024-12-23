@@ -22,9 +22,11 @@ responses = [
 def chat():
     # Recupera il messaggio dall'utente
     data = request.json
-    user_message = data.get("message", "")
     
+    user_message = data.get("message", "")
     # Elaborazione dei dati e generazione di una risposta
+    # -> da completare con la logica della chatbot effettiva
+    
     # Risposta casuale
     bot_reply = random.choice(responses)
     
@@ -71,5 +73,6 @@ def get_documents():
 
 
 # Avvio del server Flask
+# Attivzione debug mode per sviluppo -> da rimuovere per produzione
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)

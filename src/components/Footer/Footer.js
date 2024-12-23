@@ -10,15 +10,18 @@ import React, { useState } from 'react';
 import './Footer.css';
 
 const Footer = ({ onSendMessage }) => {
+  // Stato per il messaggio: inizialmente vuoto ma si aggiorna ogni volta che l'utente scrive qualcosa
   const [message, setMessage] = useState('');
 
+  // Funzione per inviare il messaggio
   const handleSend = () => {
     if (message.trim()) {
       onSendMessage(message);
-      setMessage('');
+      setMessage(''); // Reset del messaggio una volta inviato
     }
   };
 
+  // Funzione per inviare il messaggio anche premendo il tasto "invio"
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();

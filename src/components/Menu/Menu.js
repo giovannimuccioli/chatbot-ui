@@ -6,6 +6,8 @@ import React from 'react';
 import './Menu.css';
 
 const Menu = ({ onClose }) => {
+  // Invocazione della funzione di chiusura del menu al click sull'icona "x"
+  // La funzione viene passata come props dal componente "Header"
   return (
     <div className="menu-container">
       <div className="menu-header">

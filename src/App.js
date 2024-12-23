@@ -13,24 +13,24 @@ import Footer from './components/Footer/Footer';
 import './App.css';
 
 const App = () => {
+  const [isIntroVisible, setIsIntroVisible] = useState(true);  // Stato per la visibilità della pagina intro: visibile
+  const [region, setRegion] = useState('');  // Stato per la regione selezionata
   const [messages, setMessages] = useState([]); // Stato per i messaggi della chat
   const [relatedDocs, setRelatedDocs] = useState([]); // Stato per i documenti correlati
-  const [region, setRegion] = useState('');  // Stato per la regione selezionata
-  const [showIntro, setShowIntro] = useState(true);  // Stato per la visibilità della pagina intro: visibile
 
   // Definisco le funzioni per modificare appositamente gli stati
   
   // Funzione per avviare la chat, passando la regione selezionata
   const handleStartChat = (selectedRegion) => {
     setRegion(selectedRegion); // Imposta la regione selezionata come stato
-    setShowIntro(false); // Stato non visibile
+    setIsIntroVisible(false); // Stato non visibile
   };
 
   // Funzione per avviare una nuova chat
   const handleStartNewChat = () => {
     setMessages([]); // Reset messaggi
     setRelatedDocs([]); // Reset documenti correlati
-    setShowIntro(true); // Mostra la schermata di intro
+    setIsIntroVisible(true); // Mostra la schermata di intro
   }
 
   // URL del backend
@@ -75,7 +75,7 @@ const App = () => {
 
   return (
     <div className="app">
-      {showIntro ? (
+      {isIntroVisible ? (
         <Intro onStartChat={handleStartChat} />
         ) : (
           <>

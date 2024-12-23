@@ -10,10 +10,15 @@ import Menu from '../Menu/Menu';
 import './Header.css';
 
 const Header = ({ region, onStartNewChat }) => {
-  const [menuOpen, setMenuOpen] = useState(false); // Stato per gestire l'apertura/chiusura del menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Stato per gestire l'apertura/chiusura del menu: inizialmente chiuso -> isMenuOpen = false
 
+  // Funzione per aprire/chiudere il menu
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen); // Alterna tra menu aperto e chiuso
+    if (isMenuOpen) {
+      setIsMenuOpen(false); // Se è aperto, lo chiudo al click
+    } else {
+      setIsMenuOpen(true); // Se è chiuso, lo apro al click
+    }
   };
   
   return (
@@ -29,7 +34,7 @@ const Header = ({ region, onStartNewChat }) => {
       <div className="header-right">
         <button className="new-chat-icon" onClick={onStartNewChat}>+</button>
       </div>
-      {menuOpen && <Menu onClose={toggleMenu} />}
+      {isMenuOpen && <Menu onClose={toggleMenu} />}
     </header>
   );
 };
